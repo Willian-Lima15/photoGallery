@@ -13,7 +13,7 @@ export class AutenticacaoService {
     private http:HttpClient
     ) { }
 
-    autentica(usuario:string, senha:string): Observable<any>{
-      return this.http.post(this.url, {userName: usuario, password: senha})
+    autenticar(usuario:string, senha:string): Observable<any>{
+      return this.http.post(this.url, {userName: usuario, password: senha});
     }
 }
