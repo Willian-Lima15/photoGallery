@@ -10,7 +10,7 @@ export class AutenticacaoService {
   private url = 'http://localhost:3000/user/login';
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient,
     ) { }
 
     autenticar(usuario:string, senha:string): Observable<any>{
