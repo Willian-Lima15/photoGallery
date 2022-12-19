@@ -35,6 +35,9 @@
     <app-mensagem
     *ngIf="usuarioForm.get('password')?.errors?.required && usuarioForm.get('password')?.touched"
     mensagem="Senha obrigatória"></app-mensagem>
+    <app-mensagem
+    *ngIf="usuarioForm.get('password')?.errors?.senhaIgualUsuario"
+    mensagem="Senha deve ser diferente do nome de usuário"></app-mensagem>
   </div>
   <button class="btn btn-primary btn-block w-100 mt-2" (click)="cadastrar()">Cadastrar</button>
 </form>

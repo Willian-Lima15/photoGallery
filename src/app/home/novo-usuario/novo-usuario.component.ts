@@ -2,6 +2,7 @@ import { NovoUsuarioService } from './../../core/services/novo-usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { usuarioSenhaIguaisValidator } from 'src/app/shared/usuario-senha-iguais.validator';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -33,12 +34,14 @@ export class NovoUsuarioComponent implements OnInit {
       password: ['',Validators.compose([
         Validators.required
       ])]
+    },
+    {
+      validators: [usuarioSenhaIguaisValidator]
     })
   }
 
   cadastrar(){
     this.novoUsuarioService.cadastrar(this.usuarioForm.value).subscribe(()=>{
-      alert('Chegou aqui');
       this.router.navigate(['']);
     })
     console.log(this.usuarioForm.value);
