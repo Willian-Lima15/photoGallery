@@ -1,1 +1,17 @@
-<p>cabecalho works!</p>
+<header class="sticky-top">
+  <nav class="navbar navbar-light bg-white">
+    <a class="navbar-brand ms-3">Photo Gallery</a>
+    <div *ngIf="user$|async as user">
+      <div *ngIf="user.name; else login" class="ms-3">
+        <i class="fa fa-user-circle ms-3"></i>
+        <a class="ms-1">{{user.name}}</a>
+        <a (click)="logout()" class="ms-3">Logout</a>
+      </div>
+    </div>
+    <ng-template #login>
+      <span class="navbar-text">
+        <a [routerLink]="['']">Login</a>
+      </span>
+    </ng-template>
+  </nav>
+</header>
